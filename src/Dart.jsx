@@ -9,7 +9,7 @@ const Dart = ({ x = 0, y = 0 }) => {
       const deg = Math.floor(Math.random() * 360) - 180;
 
       setStyle({
-        transform: `rotate(${deg}deg)`,
+        transform: `rotate(${deg}deg) scale(0.2)`,
         top: `${y - 50}px`,
         left: `${x - 50}px`,
       })
