@@ -1,38 +1,51 @@
+:root {
+  --unit: 10px;
+  --diameter: calc(10 * var(--unit));
+  --radius: calc(5 * var(--unit));
+  --length: calc(15 * var(--unit));
+}
+
 .App {
-  text-align: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Dart_Container {
+  position: absolute;
+  top: 100vh;
+  left: 50vw;
+  height: var(--diameter);
+  width: var(--diameter);
+  transition: top 300ms cubic-bezier(.61,1.61,1,1), left 300ms ease-out, transform 300ms linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Dart {
+  position: absolute;
+  top: var(--unit);
+  width: var(--diameter);
+  height: 100%;
+  background-color: #33f;
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: 0 calc(-1 * var(--unit)) #f22;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Butt {
+  position: absolute;
+  bottom: calc(-1 * var(--radius));
+  width: var(--diameter);
+  height: var(--diameter);
+  border-radius: 50%;
+  background-color: #22f;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Butt::after {
+  position: absolute;
+  content: ' ';
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #11a;
 }
