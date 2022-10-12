@@ -15,7 +15,7 @@ const Dart = ({ x = 0, y = 0 }) => {
         transform: `rotate(${deg}deg) scale(0.2)`,
         top: `${y - 50}px`,
         left: `${x - 50}px`,
-        transition: `top ${duration}ms cubic-bezier(.61,1.61,1,1), left ${duration}ms ease-out, transform ${duration}ms ease-out`,
+        transition: `top ${duration}ms cubic-bezier(0,2,1,1), left ${duration}ms ease-out, transform ${duration}ms ease-out`,
       })
     })
   }, [x, y])
