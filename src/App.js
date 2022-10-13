@@ -25,7 +25,7 @@ function App() {
     const yOffset = offset * Math.sin(theta)
 
     setDarts([...darts, <Dart key={Date.now()} x={x + xOffset} y={y + yOffset} />])
-  }, 100, { leading: false }), [])
+  }, 125, { leading: false }), [])
 
   const fireOnce = fireDart.flush
 
