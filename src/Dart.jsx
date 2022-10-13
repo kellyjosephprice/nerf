@@ -5,27 +5,39 @@ const Dart = ({ x = 0, y = 0 }) => {
   const ref = useRef()
 
   useEffect(() => {
-    window.requestAnimationFrame(() => {
-      const deg = Math.floor(Math.random() * 360) - 180;
-      const a = Math.abs(x - (window.innerWidth / 2));
-      const b = Math.abs(window.innerHeight - y);
-      const duration = 100 + 0.2 * Math.sqrt(a ** 2 + b ** 2);
+    const deg = Math.floor(Math.random() * 360) - 180;
+    const a = Math.abs(x - (window.innerWidth / 2));
+    const b = Math.abs(window.innerHeight - y);
+    const duration = 100 + 0.2 * Math.sqrt(a ** 2 + b ** 2);
+    const height = 50 + Math.floor(Math.random() * 100);
+    let startDeg = Math.atan(a / b) * 180 / Math.PI;
 
-      setStyle({
-        transform: `rotate(${deg}deg) scale(0.2)`,
-        top: `${y - 50}px`,
-        left: `${x - 50}px`,
-        transition: `top ${duration}ms cubic-bezier(0,2,1,1), left ${duration}ms ease-out, transform ${duration}ms ease-out`,
+    if (x < window.innerWidth / 2) {
+      startDeg *= -1
+    }
+
+    const newStyle = ({
+      transform: `rotate(${deg}deg) scale(0.2)`,
+      top: `${y - 50}px`,
+      left: `${x - 50}px`,
+      height: `${height}px`,
+      transition: `top ${duration}ms cubic-bezier(0,2,1,1), left ${duration}ms ease-out, transform ${duration}ms ease-out, height ${duration}ms cubic-bezier(0,2,1,1)`,
+    })
+
+    window.requestAnimationFrame(() => {
+      setStyle({ transform: `rotate(${startDeg}deg)` });
+
+      window.requestAnimationFrame(() => {
+        setStyle(newStyle);
       })
     })
   }, [x, y])
 
 
-  return <div className='Dart_Container' style={style} ref={ref}>
-    <div className='Dart'>
-      <div className='Head' />
-      <div className='Butt' />
-    </div>
+  return <div className='Dart' style={style} ref={ref}>
+    <div className='Head' />
+    <div className='Body' />
+    <div className='Butt' />
   </div>
 }
 

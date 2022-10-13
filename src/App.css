@@ -11,7 +11,7 @@
   width: 100vw;
 }
 
-.Dart_Container {
+.Dart {
   position: absolute;
   top: 100vh;
   left: 50vw;
@@ -19,14 +19,22 @@
   width: var(--diameter);
 }
 
-.Dart {
+.Head {
   position: absolute;
-  top: var(--unit);
   width: var(--diameter);
-  height: 100%;
+  height: var(--diameter);
+  background-color: #f22;
+  border-radius: var(--radius);
+  z-index: -1
+}
+
+.Body {
+  position: absolute;
   background-color: #33f;
   border-radius: var(--radius) var(--radius) 0 0;
-  box-shadow: 0 calc(-1 * var(--unit)) #f22;
+  height: 90%;
+  width: 100%;
+  bottom: 0;
 }
 
 .Butt {
