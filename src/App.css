@@ -75,6 +75,7 @@
   color: #22f;
   animation: 1000ms fadeIn ease-in;
   pointer-events: none;
+  user-select: none;
 }
 
 .Placholder-done {
