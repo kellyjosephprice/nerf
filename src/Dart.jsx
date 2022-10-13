@@ -33,8 +33,12 @@ const Dart = ({ x = 0, y = 0 }) => {
     });
   }, [x, y]);
 
+  let played = false;
   useEffect(() => {
     const cb = () => {
+      if (played) return;
+      played = true;
+
       const nerf = new Audio("/nerf.mp3");
       nerf.volume = 0.1;
       nerf.play();
