@@ -19,7 +19,7 @@ function App() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fireDart = useCallback(throttle(({ x, y, darts }) => {
-    const offset = Math.random() * Math.random() * 100
+    const offset = Math.random() * Math.random() * 150
     const theta = Math.random() * 2 * Math.PI
     const xOffset = offset * Math.cos(theta)
     const yOffset = offset * Math.sin(theta)
