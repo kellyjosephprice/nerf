@@ -8,7 +8,7 @@ const Dart = ({ x = 0, y = 0 }) => {
     const deg = Math.floor(Math.random() * 360) - 180;
     const a = Math.abs(x - (window.innerWidth / 2));
     const b = Math.abs(window.innerHeight - y);
-    const duration = 0.4 * (100 + Math.sqrt(a ** 2 + b ** 2));
+    const duration = 0.4 * (300 + Math.sqrt(a ** 2 + b ** 2));
     const height = 50 + Math.floor(Math.random() * 100);
     let startDeg = Math.atan(a / b) * 180 / Math.PI;
 
