@@ -16,6 +16,10 @@ const Dart = ({ x = 0, y = 0 }) => {
       startDeg *= -1
     }
 
+    const nerf = new Audio('/nerf.mp3');
+    nerf.volume = 0.1;
+    nerf.play();
+
     const newStyle = ({
       transform: `rotate(${deg}deg) scale(0.2)`,
       top: `${y - 50}px`,
