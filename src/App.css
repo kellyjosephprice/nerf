@@ -9,6 +9,9 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .Dart {
@@ -55,4 +58,25 @@
   height: 50%;
   border-radius: 50%;
   background-color: #11a;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.Placeholder {
+  transition: opacity 500ms;
+  color: #22f;
+  animation: 1000ms fadeIn ease-in;
+  pointer-events: none;
+}
+
+.Placholder-done {
+  opacity: 0;
 }

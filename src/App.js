@@ -4,6 +4,7 @@ import throttle from 'lodash.throttle'
 import './App.css';
 
 import Dart from './Dart';
+import Placeholder from './Placeholder'
 
 function App() {
   const [coords, setCoords] = useState(null)
@@ -18,10 +19,12 @@ function App() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fireDart = useCallback(throttle(({ x, y, darts }) => {
-    x += Math.floor(Math.random() * 60) - 30
-    y += Math.floor(Math.random() * 50) - 25
+    const offset = Math.random() * Math.random() * 100
+    const theta = Math.random() * 2 * Math.PI
+    const xOffset = offset * Math.cos(theta)
+    const yOffset = offset * Math.sin(theta)
 
-    setDarts([...darts, <Dart key={Date.now()} x={x} y={y} />])
+    setDarts([...darts, <Dart key={Date.now()} x={x + xOffset} y={y + yOffset} />])
   }, 100, { leading: false }), [])
 
   const fireOnce = fireDart.flush
@@ -34,6 +37,7 @@ function App() {
 
   return (
     <div className="App" onClick={fireOnce} onPointerDown={startFiring} onPointerUp={stopFiring} onPointerLeave={stopFiring} onPointerMove={updateCoords}>
+      <Placeholder done={coords} />
       {darts}
     </div>
   );
