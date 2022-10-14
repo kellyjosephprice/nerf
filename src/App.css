@@ -81,3 +81,16 @@
 .Placholder-done {
   opacity: 0;
 }
+
+.Github {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 3000ms ease-in 1000ms;
+  user-select: none;
+}
+
+.Github-on {
+  opacity: 1;
+}

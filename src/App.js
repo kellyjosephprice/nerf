@@ -4,11 +4,13 @@ import throttle from 'lodash.throttle'
 import './App.css';
 
 import Dart from './Dart';
+import Github from './Github';
 import Placeholder from './Placeholder'
 
 function App() {
   const [coords, setCoords] = useState(null)
   const [darts, setDarts] = useState([])
+  const [started, setStarted] = useState(false)
 
   const startFiring = useCallback(event => setCoords({ x: event.clientX, y: event.clientY }), [])
   const stopFiring = useCallback(() => setCoords(null), [])
@@ -31,13 +33,15 @@ function App() {
 
   useEffect(() => {
     if (!coords) return
+    if (!started) setStarted(true);
 
     fireDart({ ...coords, darts})
-  }, [coords, darts, fireDart])
+  }, [coords, darts, fireDart, started])
 
   return (
     <div className="App" onClick={fireOnce} onPointerDown={startFiring} onPointerUp={stopFiring} onPointerLeave={stopFiring} onPointerMove={updateCoords}>
-      <Placeholder done={coords} />
+      <Placeholder done={started} />
+      <Github start={started} />
       {darts}
     </div>
   );
